@@ -1,0 +1,14 @@
+<h1>New post</h1>
+
+<%= render 'form' %>
+
+
+<div>
+  <%= form_for(@post) do |f| %>
+ <%= f.collection_select(:category_id, Category.all, :id, :name, { :prompt => 'Select a Category', :selected => @post.category_id }, { class: 'form-control' }) %>
+ <% end %>
+</div>
+
+
+
+<%= link_to 'Back', posts_path %>

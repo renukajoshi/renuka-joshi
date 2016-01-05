@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.Title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @post.Description %>
+</p>
+<p>
+  <strong>Tag:</strong>
+  <%= link_to 'tags',tags_path %>
+</p>
+
+<p>
+  <strong> Comment</string>
+    <%= link_to 'comments',comments_path %>
+  </p>
+
+  <p>
+  <strong> Category</string>
+    <%= link_to 'category',categories_path %>
+  </p>
+
+<%= form_for [ @posts, Comment.new ] do |f| %>
+  
+  <p>
+               <%= f.label :body, "New comment" %><br/>
+               <%= f.text_area :comment %></p>
+
+         <p><%= f.submit "Add comment" %></p>
+
+<% end %>
+
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

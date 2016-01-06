@@ -11,7 +11,7 @@
     </div>
 
 
-    <%= f.hidden_field :userid %> 
+    <%= f.hidden_field :user_id %> 
     
    
   <% end %>
@@ -30,12 +30,15 @@
   <br>
 
 
+
+
+
   <div class="field"> 
    <%= f.label "Tags" %><br /> 
    <% for tag in Tag.all %> 
    <%= check_box_tag 'post[tag_id][]', tag.id, 
        :id => dom_id(tag) %> 
-   <%= label_tag dom_id(tag), tag.Tag, :class => "check_box_label" %> 
+   <%= label_tag dom_id(tag), tag.name, :class => "check_box_label" %> 
    <% end %> 
  </div>
 

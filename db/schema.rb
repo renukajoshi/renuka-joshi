@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160105124727) do
+ActiveRecord::Schema.define(version: 20160106094422) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -21,39 +21,32 @@ ActiveRecord::Schema.define(version: 20160105124727) do
   end
 
   create_table "comments", force: true do |t|
-    t.text     "comment"
-    t.string   "tag"
+    t.text     "body"
+    t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "post_id"
-    t.integer  "p_id"
   end
 
   create_table "posts", force: true do |t|
     t.string   "Title"
-    t.text     "Description"
     t.string   "tag"
+    t.text     "Description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "permalink"
-    t.integer  "comments_id"
+    t.integer  "comment_id"
     t.integer  "category_id"
-    t.integer  "userid"
-    t.integer  "tag_id"
     t.integer  "user_id"
+    t.integer  "tag_id"
   end
 
-  add_index "posts", ["permalink"], name: "index_posts_on_permalink"
+  add_index "posts", ["comment_id"], name: "index_posts_on_comment_id"
   add_index "posts", ["user_id"], name: "index_posts_on_user_id"
 
   create_table "tags", force: true do |t|
-    t.string   "Tag"
+    t.string   "name"
+    t.integer  "post_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "postid"
-    t.integer  "post_id"
   end
 
   create_table "users", force: true do |t|
@@ -69,8 +62,6 @@ ActiveRecord::Schema.define(version: 20160105124727) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.string   "username"
-    t.integer  "posst_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

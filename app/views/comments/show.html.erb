@@ -1,11 +1,14 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
-  <strong>Comment:</strong>
-  <%= @comment.comment %>
+  <strong>Body:</strong>
+  <%= @comment.body %>
 </p>
 
+<p>
+  <strong>Post:</strong>
+  <%= @comment.post_id %>
+</p>
 
-<%=link_to 'show' ,posts_path %>
 <%= link_to 'Edit', edit_comment_path(@comment) %> |
 <%= link_to 'Back', comments_path %>

@@ -1,39 +1,44 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @post.Title %>
-</p>
+<table border="2" cellpadding="10" cellspacing="0">
+<tr>
+  <td><strong>Title:</strong></td>
+  <td><%= @post.Title %></td>
+</tr>
 
-<p>
-  <strong>Description:</strong>
-  <%= @post.Description %>
-</p>
-<p>
-  <strong>Tag:</strong>
-  <%= link_to 'tags',tags_path %>
-</p>
+<tr>
+  <td><strong>Description:</strong></td>
+  <td><%= @post.Description %></td>
+</tr>
 
-<p>
-  <strong> Comment</string>
-    <%= link_to 'comments',comments_path %>
-  </p>
+<tr>
+  <td><strong>Tag:</strong></td>
+  <td><%= @post.tags.map(&:name).join(',') %></td>
+</tr>
 
-  <p>
-  <strong> Category</string>
-    <%= link_to 'category',categories_path %>
-  </p>
+<tr>
+  <td><strong>Comment:</strong></td>
+  <td><%= @post.comments.map(&:body).join(',') %></td>
+</tr>
 
 <%= form_for [ @posts, Comment.new ] do |f| %>
   
   <p>
                <%= f.label :body, "New comment" %><br/>
-               <%= f.text_area :comment %></p>
+               <%= f.text_area :body %></p>
+
+               <%= f.label :post_id, "select post" %><br/>
+               <%= f.text_field :post_id %></p>
 
          <p><%= f.submit "Add comment" %></p>
 
 <% end %>
 
+<tr>
+  <td><strong> Category</string></td>
+  <td><%=  %></td>
+  </tr>
+  </table>
+  <br>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

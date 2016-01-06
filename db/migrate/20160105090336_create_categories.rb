@@ -5,6 +5,6 @@ class CreateCategories < ActiveRecord::Migration
 
       t.timestamps
     end
-    
+   # add_reference :posts, :category, index: true , foreign_key: true
   end
 end

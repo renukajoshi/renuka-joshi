@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
-  
-  resources :categories
-
-  root to: 'posts#index'
 
   devise_for :users
+  resources :categories
+
+  root to: 'categories#index'
   
 
   resources :tags
@@ -12,10 +11,6 @@ Rails.application.routes.draw do
   resources :comments
 
   resources :posts
-
-  #match 'post/:id', :controller=>:posts, :to => :Title, :via=>:get, :as=>:Title
-
-  #root to: "posts/index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

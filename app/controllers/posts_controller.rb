@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
 
   # GET /posts
   # GET /posts.json
@@ -14,7 +14,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
   def show
    @post = Post.find(params[:id])
-   @category=@post.categories
+  #@category=@post.categories
    @comment=@post.comments
   end
 
@@ -45,9 +45,9 @@ class PostsController < ApplicationController
 
     end
 
-    if @post.save
-      @post.tags.build
-    end
+    #if @post.save
+     # @post.tags.build
+    #end
 
     #========================
     #for Tags using check box
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
       #some_hash=params[:post]
       #s = some_hash["tag_id"].size
       #for i in 0..s
-        #puts "#{i} => #{some_hash["tag_id"][i]}"
+       # puts "#{i} => #{some_hash["tag_id"][i]}"
 
        #@post = Tag.new(:post_id => @post.id , :tag_id => some_hash["tag_id"][i])
        #@post.save

@@ -3,10 +3,10 @@ class Post < ActiveRecord::Base
 
 
 
-	has_many :comments
-	has_many :tags
+	has_many :comments ,:dependent => :destroy
+	has_many :tags , :dependent => :destroy
 	belongs_to :user , :foreign_key => "post_id"
-	has_many :categories
+	belongs_to :category, :foreign_key => "category_id"
 
 	 #belong_to :category
 

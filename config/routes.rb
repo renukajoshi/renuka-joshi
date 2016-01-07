@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  get 'user/index'
+  #resources :users
+
   resources :categories
 
+  devise_for :users
+ 
   root to: 'categories#index'
   
 

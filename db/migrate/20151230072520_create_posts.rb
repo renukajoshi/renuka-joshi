@@ -11,6 +11,6 @@ class CreatePosts < ActiveRecord::Migration
     end
     #add_foreign_key :p_id
     #add_foreign_key :post_id
-    add_reference :categories, :post, index: true,  foreign_key: true
+    add_reference :users, :post, index: true,  foreign_key: true
   end
 end

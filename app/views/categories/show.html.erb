@@ -1,9 +1,40 @@
-
+<p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Name:</strong>
+  <strong> Category:</strong>
   <%= @category.name %>
 </p>
+
+<p>
+  <strong>Post:</strong>
+  <%= link_to @category.post.Title, posts_path %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @category.post.tags.map(&:name).join(',') %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @category.post.comments.map(&:body).join(',') %>
+</p>
+
+<p>
+  <strong>Created at:</strong>
+  <%= @category.post.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @category.post.updated_at %>
+</p>
+
+<p>
+  <strong>Posted By:</strong>
+  <%= @category.post.users.map(&:email).join %>
+</p>
+
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>

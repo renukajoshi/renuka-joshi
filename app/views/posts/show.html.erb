@@ -20,25 +20,34 @@
   <td><%= @post.comments.map(&:body).join(',') %></td>
 </tr>
 
+<tr>
+  <td><strong>Category:</strong></td>
+  <td><%= @post.categories.map(&:name).join(',') %></td>
+</tr>
+
+<tr>
+  <td><strong>Category:</strong></td>
+  <td><%= @post.created_at %></td>
+</tr>
+
+<tr>
+  <td><strong>Category:</strong></td>
+  <td><%= @post.updated_at %></td>
+</tr>
+
+
 <%= form_for [ @posts, Comment.new ] do |f| %>
   
   <p>
                <%= f.label :body, "New comment" %><br/>
                <%= f.text_area :body %></p>
 
-               <%= f.label :post_id, "select post" %><br/>
-               <%= f.text_field :post_id %></p>
+            
 
          <p><%= f.submit "Add comment" %></p>
 
 <% end %>
 
-<tr>
-  <td><strong> Category</string></td>
-  <td><%=  %></td>
-  </tr>
-  </table>
-  <br>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

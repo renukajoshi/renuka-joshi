@@ -2,11 +2,13 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   #before_filter :authenticate_user!
-
+  #before_filter :require_user
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
+    #raise params.inspect
+    @posts = Post.where(user_id:current_user.id)
     #@tags =@posts.tags
   end
 
@@ -21,6 +23,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    #@ask.userid=current_user.id
     #@comment=@post.comments.build
   end
 
@@ -32,7 +35,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    #@post.userid = current_user.id
+    @post.user_id = current_user.id
     #session[:current_user_id] = @user.id
     respond_to do |format|
       if @post.save

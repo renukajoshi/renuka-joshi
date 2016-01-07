@@ -1,3 +1,3 @@
 class Category < ActiveRecord::Base
-	belongs_to :post , :foreign_key => "post_id"
+	has_many :posts
 end

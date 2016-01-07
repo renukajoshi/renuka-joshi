@@ -22,7 +22,7 @@
 
 <tr>
   <td><strong>Category:</strong></td>
-  <td><%= @post.categories.map(&:name).join(',') %></td>
+  <td><%= @post.category.try(:name) %></td>
 </tr>
 
 <tr>
@@ -34,7 +34,7 @@
   <td><strong>Category:</strong></td>
   <td><%= @post.updated_at %></td>
 </tr>
-
+</table>
 
 <%= form_for [ @posts, Comment.new ] do |f| %>
   
@@ -49,5 +49,5 @@
 <% end %>
 
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= #link_to 'Edit', edit_category_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>

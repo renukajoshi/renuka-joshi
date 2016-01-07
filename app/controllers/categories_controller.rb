@@ -4,7 +4,9 @@ class CategoriesController < ApplicationController
   respond_to :html
 
   def index
-    @categories = Category.all
+    @categories= Category.all
+    #@categories=Post.find(params[:id]).categories
+    #@post=Post.find(params[:id])
     respond_with(@categories)
   end
 

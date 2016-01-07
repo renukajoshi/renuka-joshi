@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
 
-  get 'user/index'
-  #resources :users
+  resources :password_resets
 
-  resources :categories
+  resources :categories do
+    resources :posts 
+  end
+ 
+
+ # get 'user/index'
+  #resources :users
 
   devise_for :users
  
@@ -14,7 +19,7 @@ Rails.application.routes.draw do
 
   resources :comments
 
-  resources :posts
+  #resources :posts
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

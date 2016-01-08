@@ -5,6 +5,9 @@ class PostsController < ApplicationController
   before_filter :load_category
   # GET /posts
   # GET /posts.json
+
+  #respond_to :html
+
   def index
     #raise params.inspect
     @posts = @category.posts
@@ -22,8 +25,10 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     #raise params.inspect
-    @post = Post.new
-    @category = Category.where(:id => params[:category_id])
+    @category = Category.find(params[:category_id])
+    #@tag= Tag.find(params[:id])
+    @post = @category.posts.new
+    
     #@ask.userid=current_user.id
     #@comment=@post.comments.build
   end
@@ -35,12 +40,21 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
+    puts params
+    @category=Category.find(params[:category_id])
+    #@post=@category.posts.new
+    puts post_params
+    @post = @category.posts.build(post_params)
     @post.user_id = current_user.id
+
+   
+    #@post=category.posts.create(params[:posts])
+    #@post.save
+    #respond_with(category_posts_path)
     #session[:current_user_id] = @user.id
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        format.html { redirect_to category_posts_path , notice: 'Post was successfully created.'}
         format.json { render :show, status: :created, location: @post }
       else
         format.html { render :new }
@@ -69,9 +83,10 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   # PATCH/PUT /posts/1.json
   def update
+    @post.user_id = current_user.id
     respond_to do |format|
       if @post.update(post_params)
-        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.html { redirect_to category_posts_path, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
       else
         format.html { render :edit }
@@ -102,6 +117,6 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:Title, :Description, {:tag_id =>[]})
+      params.require(:post).permit(:Title, :Description,:tag_id,:user_id)
     end
 end

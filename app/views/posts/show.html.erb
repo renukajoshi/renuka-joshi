@@ -1,53 +1,59 @@
 
-<table border="2" cellpadding="10" cellspacing="0">
-<tr>
-  <td><strong>Title:</strong></td>
-  <td><%= @post.Title %></td>
-</tr>
+<p>
+  <strong>Title:</strong>
+  <%= @post.Title %>
+</p>
 
-<tr>
-  <td><strong>Description:</strong></td>
-  <td><%= @post.Description %></td>
-</tr>
+<p>
+  <strong>Description:</strong>
+  <%= @post.Description %>
+</p>
 
-<tr>
-  <td><strong>Tag:</strong></td>
-  <td><%= @post.tags.map(&:name).join(',') %></td>
-</tr>
+<p>
+  <strong>Tag:</strong>
+  <%= @post.tags.try(:name) %>
+</p>
 
-<tr>
-  <td><strong>Comment:</strong></td>
-  <td><%= @post.comments.map(&:body).join(',') %></td>
-</tr>
+<p>
+  <strong>Comment:</strong>
+  <%= @post.comments.map(&:body).join(',') %>
+</p>
 
-<tr>
-  <td><strong>Category:</strong></td>
-  <td><%= @post.category.try(:name) %></td>
-</tr>
 
-<tr>
-  <td><strong>Category:</strong></td>
-  <td><%= @post.created_at %></td>
-</tr>
+<p>
+  <strong>User:</strong>
+  <%= @post.user_id %>
+</p>
 
-<tr>
-  <td><strong>Category:</strong></td>
-  <td><%= @post.updated_at %></td>
-</tr>
-</table>
+<p>
+  <strong>Category:</strong>
+  <%= @post.category.try(:name) %>
+</p>
 
-<%= form_for [ @posts, Comment.new ] do |f| %>
+<p>
+  <strong>Created_at:</strong>
+  <%= @post.created_at %>
+</p>
+
+<p>
+  <strong>Updated_at:</strong>
+  <%= @post.updated_at %>
+</p>
+
+
+<%= form_for [ @post, Comment.new ] do |f| %>
   
   <p>
                <%= f.label :body, "New comment" %><br/>
                <%= f.text_area :body %></p>
 
-            
+              
+               <%= f.hidden_field :post_id , value: params[:id] %></p>            
 
-         <p><%= f.submit "Add comment" %></p>
+         <p><%= f.submit "Add comment"  %></p>
 
 <% end %>
 
 
-<%= #link_to 'Edit', edit_category_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<%= link_to 'Edit', edit_category_post_path(@post.category,@post) %> |
+<%= link_to 'Back', category_posts_path(@category) %>

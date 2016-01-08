@@ -1,3 +1,4 @@
 class Tag < ActiveRecord::Base
-	belongs_to :post ,:foreign_key => "post_id"
+	has_many :JoinPosts
+	has_many :posts , through: :JoinPosts 
 end

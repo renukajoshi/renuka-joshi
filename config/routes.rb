@@ -1,11 +1,21 @@
 Rails.application.routes.draw do
 
+  resources :join_posts
+
   resources :password_resets
+ 
+ #nested routes/resources
 
   resources :categories do
-    resources :posts 
+    resources :posts
   end
  
+
+ resources :posts do 
+    resources :comments
+  end
+
+
 
  # get 'user/index'
   #resources :users
@@ -17,10 +27,9 @@ Rails.application.routes.draw do
 
   resources :tags
 
-  resources :comments
+  #resources :comments
 
-  #resources :posts
-
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

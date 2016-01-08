@@ -4,7 +4,9 @@ class TagsController < ApplicationController
   respond_to :html
 
   def index
-    @tags = Tag.all
+     @tags=Post.find(params[:id]).tags
+    #@post=Post.find(params[:id])
+    @tags = Tag.find(params[:id])
     respond_with(@tags)
   end
 

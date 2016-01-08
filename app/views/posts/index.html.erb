@@ -16,14 +16,14 @@
     <% @posts.each do |post| %>
       <tr>
         <td><%= post.user_id%></td>
-        <!-- added link to post title-->
-        <td><%= link_to post.Title , comments_path(:id => post.id) %></td>
+        
+        <td><%= post.Title %></td>
         <td><%= post.Description %></td>
-        <td><%= post.comments.map(&:body).join(',') %></td>
-        <td><%= post.tags.map(&:name).join(',') %></td>
+        <td><%= post.comments.map{|t| t.body}.join(',') %></td>
+        <td><%= post.tags.map{|n| n.name}.join(',') %></td>
         <td><%= link_to 'Show', category_post_path(post.category,post) %></td>
         <td><%= link_to 'Edit', edit_category_post_path(post.category,post) %></td>
-        <td><%#= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', category_post_path(post.category,post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -36,3 +36,4 @@
 <br>
 
 <%= link_to 'New Post', new_category_post_path(@category) %>
+

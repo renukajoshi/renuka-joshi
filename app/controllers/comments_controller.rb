@@ -14,12 +14,16 @@ class CommentsController < ApplicationController
   end
 
   def show
+    #raise params.inspect
+     @post = Post.find(params[:post_id])
+     #@post=@comment.posts
     respond_with(@comment)
   end
 
   def new
    # raise params.inspect
-    @comment = Comment.new
+   @post=Post.find(params[:post_id])
+    @comment = @post.comments.new
     respond_with(@comment)
   end
 
@@ -27,9 +31,20 @@ class CommentsController < ApplicationController
   end
 
   def create
+     @post=Post.find(params[:post_id])
+    #@post=@category.posts.new
+    #puts post_params
+    @comment = @post.comments.build(comment_params)
     @comment = Comment.new(comment_params)
-    @comment.save
-    respond_with(@comment)
+    #@comment.save
+    #respond_with(@comment)
+    if @comment.save
+     flash[:notice] = "Comment was created"
+      redirect_to category_post_path(@post.category,@post)
+   else 
+     flash[:error] = "Comment failed to save"
+   end
+
   end
 
   def update

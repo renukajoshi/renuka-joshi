@@ -19,5 +19,28 @@ module Blog
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+
+   # ActionMailer::Base.smtp_settings = {
+   #    :address => 'smtp.gmail.com',
+    #   :domain => 'mail.google.com',
+     #  :port => 587,
+      # :user_name => "renuka.joshi92@gmail.com",
+       #:password => "raj@oct92",
+       #:authentication => 'login',
+       #:enable_starttls_auto => true }
+
+
+       #ActionMailer::Base.delivery_method = :smtp
+      #ActionMailer::Base.smtp_settings = {
+      #:tls => true,
+      #:address => "smtp.gmail.com",
+      #:port => 587,
+      #:domain => "gmail.com",
+      #:authentication => :login,
+      #:user_name => "renuka.joshi92@gmail.com",
+      #:password => "raj@oct92"
+      #  }
+
   end
 end

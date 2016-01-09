@@ -20,7 +20,15 @@
         <td><%= post.Title %></td>
         <td><%= post.Description %></td>
         <td><%= post.comments.map{|t| t.body}.join(',') %></td>
-        <td><%= post.tags.map{|n| n.name}.join(',') %></td>
+        <td>
+          
+         <% post.tags.each do |tag| %>
+              <%=link_to tag.name  , tags_path(:id => tag)%> ,
+          <% end %>
+
+
+
+        </td>
         <td><%= link_to 'Show', category_post_path(post.category,post) %></td>
         <td><%= link_to 'Edit', edit_category_post_path(post.category,post) %></td>
         <td><%= link_to 'Destroy', category_post_path(post.category,post), method: :delete, data: { confirm: 'Are you sure?' } %></td>

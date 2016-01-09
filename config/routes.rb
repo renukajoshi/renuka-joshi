@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :join_posts
-
   resources :password_resets
  
  #nested routes/resources

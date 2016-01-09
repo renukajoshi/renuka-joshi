@@ -4,13 +4,21 @@ class TagsController < ApplicationController
   respond_to :html
 
   def index
-     @tags=Post.find(params[:id]).tags
-    #@post=Post.find(params[:id])
-    @tags = Tag.find(params[:id])
+    
+
+    @tag=Join.where(:tag_id => params[:id])
+    @tag_name = Tag.find(params[:id])
+     #raise @tag.inspect
+    
+    #raise @posts.inspect
+    
+     #@tags=Tag.all
+      #@tags = Tag.find(params[:post_id => @post.id])
     respond_with(@tags)
   end
 
   def show
+     #@post = Post.find(params[:post_id])
     respond_with(@tag)
   end
 

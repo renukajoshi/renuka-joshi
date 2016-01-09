@@ -8,8 +8,8 @@ class Post < ActiveRecord::Base
 
 	 belongs_to :category , :foreign_key =>"category_id"
 
-	has_many :JoinPosts
-	has_many :tags , through: :JoinPosts
+	has_many :joins
+	has_many :tags , through: :joins
 
 	validates_presence_of :Title , :Description
 end

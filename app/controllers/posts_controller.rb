@@ -10,6 +10,9 @@ class PostsController < ApplicationController
 
   def index
     #raise params.inspect
+    #@tag=Tag.find(params[:id]).posts
+    #@post=Post.find(params[:id])
+    #raise params.inspect
     @posts = @category.posts
     #@tags =@posts.tags
   end
@@ -20,6 +23,7 @@ class PostsController < ApplicationController
    @post = Post.find(params[:id])
   #@category=@post.categories
    @comment=@post.comments
+   @tag=@post.tags
   end
 
   # GET /posts/new
@@ -28,6 +32,9 @@ class PostsController < ApplicationController
     @category = Category.find(params[:category_id])
     #@tag= Tag.find(params[:id])
     @post = @category.posts.new
+    @all_tags =Tag.all
+    #@post_tag = @post.tags.build
+    #raise @post_tag.inspect
     
     #@ask.userid=current_user.id
     #@comment=@post.comments.build
@@ -40,11 +47,11 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    puts params
+    
     @category=Category.find(params[:category_id])
     #@post=@category.posts.new
     puts post_params
-    @post = @category.posts.build(post_params)
+    @post = @category.posts.create(post_params)
     @post.user_id = current_user.id
 
    
@@ -54,6 +61,14 @@ class PostsController < ApplicationController
     #session[:current_user_id] = @user.id
     respond_to do |format|
       if @post.save
+
+         some_hash = params.require(:tag_ids)
+         s= some_hash.size
+          for i in 0...s
+          @join = Join.new(:post_id  =>@post.id ,:tag_id => some_hash[i])
+          @join.save
+            end
+          #raise s.inspect
         format.html { redirect_to category_posts_path , notice: 'Post was successfully created.'}
         format.json { render :show, status: :created, location: @post }
       else

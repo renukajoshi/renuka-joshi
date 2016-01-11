@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
+  
+  #layout "home"
+
+
   #before_filter :authenticate_user!
   before_filter :load_category
   # GET /posts
@@ -9,6 +13,9 @@ class PostsController < ApplicationController
   #respond_to :html
 
   def index
+    #raise params.inspect
+    #@tag=Tag.find(params[:id]).posts
+    #@post=Post.find(params[:id])
     #raise params.inspect
     @posts = @category.posts
     #@tags =@posts.tags
@@ -20,6 +27,11 @@ class PostsController < ApplicationController
    @post = Post.find(params[:id])
   #@category=@post.categories
    @comment=@post.comments
+   @tag=@post.tags
+   
+   @post.user_id=current_user.id
+   #raise @post.inspect
+
   end
 
   # GET /posts/new
@@ -28,6 +40,7 @@ class PostsController < ApplicationController
     @category = Category.find(params[:category_id])
     #@tag= Tag.find(params[:id])
     @post = @category.posts.new
+    @all_tags =Tag.all
     
     #@ask.userid=current_user.id
     #@comment=@post.comments.build
@@ -54,6 +67,13 @@ class PostsController < ApplicationController
     #session[:current_user_id] = @user.id
     respond_to do |format|
       if @post.save
+
+         some_hash = params.require(:tag_ids)
+         s= some_hash.size
+          for i in 0...s
+          @join = Join.new(:post_id  =>@post.id ,:tag_id => some_hash[i])
+          @join.save
+            end
         format.html { redirect_to category_posts_path , notice: 'Post was successfully created.'}
         format.json { render :show, status: :created, location: @post }
       else

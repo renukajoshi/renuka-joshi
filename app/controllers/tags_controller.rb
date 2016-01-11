@@ -1,16 +1,22 @@
 class TagsController < ApplicationController
   before_action :set_tag, only: [:show, :edit, :update, :destroy]
 
+  #layout "home"
+
+
   respond_to :html
 
   def index
-     @tags=Post.find(params[:id]).tags
-    #@post=Post.find(params[:id])
-    @tags = Tag.find(params[:id])
+    #raise params.inspect
+     @tag=Join.where(:tag_id => params[:id])
+     @tag_name = Tag.find(params[:id])
+     #@tags=Tag.all
+      #@tags = Tag.find(params[:post_id => @post.id])
     respond_with(@tags)
   end
 
   def show
+     @post = Post.find(params[:post_id])
     respond_with(@tag)
   end
 

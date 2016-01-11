@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-
-  resources :join_posts
-
-  resources :password_resets
+ 
+ devise_for :users 
+  
+  #root to: "registrations#new"
+  #resources :password_resets
  
  #nested routes/resources
 
@@ -20,7 +21,7 @@ Rails.application.routes.draw do
  # get 'user/index'
   #resources :users
 
-  devise_for :users
+  #devise_for :users
  
   root to: 'categories#index'
   

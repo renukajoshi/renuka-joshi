@@ -1,22 +1,20 @@
-
 <p>
-  <strong>Title:</strong>
-  <%= @post.Title %>
+   <strong>Title:</strong> 
+   <%= @post.Title %>
 </p>
+
+
 
 <p>
   <strong>Description:</strong>
   <%= @post.Description %>
 </p>
 
-<p>
-  <strong>Tag:</strong>
-  <%= @post.tags.try(:name) %>
-</p>
+
 
 <p>
-  <strong>Comment:</strong>
-  <%= @post.comments.map(&:body).join(',') %>
+  <strong>Tag:</strong>
+  <%= @post.tags.map(&:name).join(',') %>
 </p>
 
 
@@ -25,34 +23,36 @@
   <%= @post.user_id %>
 </p>
 
+
+
+
 <p>
   <strong>Category:</strong>
   <%= @post.category.try(:name) %>
 </p>
+
+
 
 <p>
   <strong>Created_at:</strong>
   <%= @post.created_at %>
 </p>
 
+
+
 <p>
   <strong>Updated_at:</strong>
   <%= @post.updated_at %>
 </p>
 
+<p>
+  <strong>Comments:</strong>
+  <%= @post.comments.map(&:body).join()%>
+</p>
 
-<%= form_for [ @post, Comment.new ] do |f| %>
-  
-  <p>
-               <%= f.label :body, "New comment" %><br/>
-               <%= f.text_area :body %></p>
+<br>
 
-              
-               <%= f.hidden_field :post_id , value: params[:id] %></p>            
-
-         <p><%= f.submit "Add comment"  %></p>
-
-<% end %>
+<%= render 'comment' , locals: @post %>
 
 
 <%= link_to 'Edit', edit_category_post_path(@post.category,@post) %> |

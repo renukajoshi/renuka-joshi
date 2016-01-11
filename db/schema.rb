@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160108142112) do
+ActiveRecord::Schema.define(version: 20160111114235) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -27,12 +27,9 @@ ActiveRecord::Schema.define(version: 20160108142112) do
     t.datetime "updated_at"
   end
 
-  create_table "join_posts", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "post_tags", force: true do |t|
+  create_table "joins", force: true do |t|
+    t.integer  "post_id"
+    t.integer  "tag_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -75,6 +72,9 @@ ActiveRecord::Schema.define(version: 20160108142112) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "birthdate"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

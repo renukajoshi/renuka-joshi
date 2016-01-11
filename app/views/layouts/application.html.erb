@@ -7,22 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<% if notice %>
+
+	
+<header>
+<marquee> Welcome to my blog! </marquee>
+<div align="right">
+<a href="/tags">Tags</a></div><br>
+<div align="right"><%= link_to 'New Tag', new_tag_path %></div>
+<hr>
+</header>
+
+<% if notice %>
   <p class="alert alert-success"><%= notice %></p>
 <% end %>
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
-<ul class="nav">
-<li class="active"><a href="/categories">Categories</a></li>
-<li class="active"><a href="/posts">Posts</a></li>
-<li class="active"><a href="/comments">Comments</a></li>
-<li class="active"><a href="/tags">Tags</a></li>
-</ul>
+<p class="navbar-text pull-right" align="right">  
 
-
-<p class="navbar-text pull-right">
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.email %></strong>.
   <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
@@ -31,6 +34,8 @@
   <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
+<hr>
+
 
 <%= yield %>
 

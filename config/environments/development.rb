@@ -37,7 +37,11 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = {host:'localhost',port:3000}
 
+<<<<<<< HEAD
   config.action_mailer.delivery_method = :smtp
+=======
+  #config.action_mailer.delivery_method = :smtp
+>>>>>>> 6710ac8f009fce6b606133c48f6f9ac60db433f5
 
 
 

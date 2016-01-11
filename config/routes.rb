@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
  
  devise_for :users 
   
   #root to: "registrations#new"
   #resources :password_resets
+=======
+
+  resources :password_resets
+>>>>>>> 6710ac8f009fce6b606133c48f6f9ac60db433f5
  
  #nested routes/resources
 

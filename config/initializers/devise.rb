@@ -127,7 +127,11 @@ Devise.setup do |config|
   #config.reconfirmable = false
 
   # Defines which key will be used when confirming an account
+<<<<<<< HEAD
   config.confirmation_keys = [:email]
+=======
+  #config.confirmation_keys = [:email]
+>>>>>>> 6710ac8f009fce6b606133c48f6f9ac60db433f5
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.
@@ -155,16 +159,27 @@ Devise.setup do |config|
   # ==> Configuration for :timeoutable
   # The time you want to timeout the user session without activity. After this
   # time the user will be asked for credentials again. Default is 30 minutes.
+<<<<<<< HEAD
    config.timeout_in = 30.minutes
+=======
+   #config.timeout_in = 30.minutes
+>>>>>>> 6710ac8f009fce6b606133c48f6f9ac60db433f5
 
   # ==> Configuration for :lockable
   # Defines which strategy will be used to lock an account.
   # :failed_attempts = Locks an account after a number of failed attempts to sign in.
   # :none            = No lock strategy. You should handle locking by yourself.
+<<<<<<< HEAD
   config.lock_strategy = :failed_attempts
 
   # Defines which key will be used when locking and unlocking an account
   config.unlock_keys = [:email]
+=======
+  #config.lock_strategy = :failed_attempts
+
+  # Defines which key will be used when locking and unlocking an account
+  #config.unlock_keys = [:email]
+>>>>>>> 6710ac8f009fce6b606133c48f6f9ac60db433f5
 
   # Defines which strategy will be used to unlock an account.
   # :email = Sends an unlock link to the user email
@@ -175,7 +190,11 @@ Devise.setup do |config|
 
   # Number of authentication tries before locking an account if lock_strategy
   # is failed attempts.
+<<<<<<< HEAD
   config.maximum_attempts = 3
+=======
+  #config.maximum_attempts = 3
+>>>>>>> 6710ac8f009fce6b606133c48f6f9ac60db433f5
 
   # Time interval to unlock the account if :time is enabled as unlock_strategy.
   # config.unlock_in = 1.hour

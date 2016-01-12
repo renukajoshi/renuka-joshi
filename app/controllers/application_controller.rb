@@ -12,4 +12,13 @@ class ApplicationController < ActionController::Base
     #@current_user ||= User.find_by_auth_token( cookies[:auth_token]) if cookies[:auth_token]
  #end
   #helper_method :current_user
+
+
+  before_filter :configure_devise_params, if: :devise_controller?
+  def configure_devise_params
+    devise_parameter_sanitizer.for(:sign_up) do |u|
+      u.permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    end
+  end
+
 end

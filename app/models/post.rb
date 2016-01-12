@@ -4,6 +4,8 @@ class Post < ActiveRecord::Base
 	has_many :comments ,:dependent => :destroy
 
 	belongs_to :user , :foreign_key => "post_id"
+
+	delegate :first_name, to: :user, allow_nil: true, prefix: true
 	# has_many :categories , :dependent => :destroy
 
 	 belongs_to :category , :foreign_key =>"category_id"
@@ -12,4 +14,6 @@ class Post < ActiveRecord::Base
 	has_many :tags , through: :joins
 
 	validates_presence_of :Title , :Description
+
+	
 end

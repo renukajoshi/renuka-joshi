@@ -21,7 +21,8 @@ module Blog
     # config.i18n.default_locale = :de
 
 
-<<<<<<< HEAD
+#<<<<<<< HEAD
+ ActionMailer::Base.delivery_method = :smtp
    ActionMailer::Base.smtp_settings = {
        :address => 'smtp.gmail.com',
        :domain => 'mail.google.com',
@@ -30,7 +31,7 @@ module Blog
        :password => "raj@oct92",
        :authentication => 'login',
        :enable_starttls_auto => true }
-=======
+#=======
    # ActionMailer::Base.smtp_settings = {
    #    :address => 'smtp.gmail.com',
     #   :domain => 'mail.google.com',
@@ -39,7 +40,7 @@ module Blog
        #:password => "raj@oct92",
        #:authentication => 'login',
        #:enable_starttls_auto => true }
->>>>>>> 6710ac8f009fce6b606133c48f6f9ac60db433f5
+#>>>>>>> 6710ac8f009fce6b606133c48f6f9ac60db433f5
 
 
        #ActionMailer::Base.delivery_method = :smtp

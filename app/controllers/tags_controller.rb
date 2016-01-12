@@ -7,11 +7,11 @@ class TagsController < ApplicationController
   respond_to :html
 
   def index
-<<<<<<< HEAD
+#<<<<<<< HEAD
     #raise params.inspect
      @tag=Join.where(:tag_id => params[:id])
      @tag_name = Tag.find(params[:id])
-=======
+#=======
     
 
     @tag=Join.where(:tag_id => params[:id])
@@ -20,18 +20,18 @@ class TagsController < ApplicationController
     
     #raise @posts.inspect
     
->>>>>>> 6710ac8f009fce6b606133c48f6f9ac60db433f5
+#>>>>>>> 6710ac8f009fce6b606133c48f6f9ac60db433f5
      #@tags=Tag.all
       #@tags = Tag.find(params[:post_id => @post.id])
     respond_with(@tags)
   end
 
   def show
-<<<<<<< HEAD
+#<<<<<<< HEAD
      @post = Post.find(params[:post_id])
-=======
+#=======
      #@post = Post.find(params[:post_id])
->>>>>>> 6710ac8f009fce6b606133c48f6f9ac60db433f5
+#>>>>>>> 6710ac8f009fce6b606133c48f6f9ac60db433f5
     respond_with(@tag)
   end
 

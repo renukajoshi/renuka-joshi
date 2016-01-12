@@ -4,7 +4,7 @@
 
 <h2>Listing categories</h2>
 
-<table border="2" cellpadding="20">
+<table border="2" cellpadding="10">
   <thead>
     <tr>
       <th>Name</th>
@@ -16,7 +16,7 @@
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <th><%= category.name %></th>
+        <td><%= category.name %></td>
        
         <td><%= link_to 'Show', category %></td>
        

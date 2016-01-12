@@ -10,5 +10,11 @@
   <%= @comment.post_id %>
 </p>
 
+<p>
+  <strong></strong>
+  <%=time_ago_in_words(@comment.created_at) %>
+</p>
+
+
 <%= link_to 'Edit', edit_post_comment_path(@comment.post,@comment) %> |
 <%= link_to 'Back', post_comments_path(@post) %>

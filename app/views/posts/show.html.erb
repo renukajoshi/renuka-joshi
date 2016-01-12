@@ -24,8 +24,6 @@
 </p>
 
 
-
-
 <p>
   <strong>Category:</strong>
   <%= @post.category.try(:name) %>
@@ -36,6 +34,7 @@
 <p>
   <strong>Created_at:</strong>
   <%= @post.created_at %>
+
 </p>
 
 
@@ -45,12 +44,22 @@
   <%= @post.updated_at %>
 </p>
 
-<p>
-  <strong>Comments:</strong>
-  <%= @post.comments.map(&:body).join()%>
-</p>
 
-<br>
+<hr>
+<% @com=@post.comments %>
+        
+     <% @com.each do |c| %>  
+         <%= c.body %><p id="timestamp"><%= time_ago_in_words(c.created_at) %> ago</p>
+          <% if user_signed_in? %>
+        <%#= link_to '-', edit_category_post_comment_path(@post.category , @post, c ) %>
+
+        <p id ="commentid">  <%= link_to 'destroy', post_comment_path(@post.id, c ) , method: :delete, data: { confirm: 'Are you sure?' } %>  
+          <% end %> 
+        </p>
+        <hr>
+     <% end %>      
+
+<hr>
 
 <%= render 'comment' , locals: @post %>
 

@@ -24,6 +24,8 @@ class PostsController < ApplicationController
   #@category=@post.categories
    @comment=@post.comments
    @tag=@post.tags
+   #@post.first_name = current_user.first_name
+   #@post.user_id=current_user.id
   end
 
   # GET /posts/new

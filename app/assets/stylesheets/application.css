@@ -14,20 +14,19 @@
  *= require_self
  */
 
-
 body { 
 
 		background-color: #EEE ;
 		
 		color: #123;
 
-		font-family: arial
+		font-family: arial;
 
 		}
 
 
 a {
-  color: blue;
+  color: black;
   &:visited {
     color: #666;
   }
@@ -40,7 +39,8 @@ a {
 header{
 	background-color: #ACB;
 
-	color: black;
+	color: green;
+  font-family: comic-sans-ms;
 }
 
 table{
@@ -59,5 +59,6 @@ th{ background-color: black;
 td{
   text-align: center;
 }
+
 
 

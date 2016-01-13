@@ -40,3 +40,5 @@ gem 'spring',        group: :development
 gem 'devise'
 
 #gem 'has_permalink'
+
+#gem 'bootstrap-sass' , '~> 2.3.2.0'

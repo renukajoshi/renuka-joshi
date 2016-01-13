@@ -15,5 +15,8 @@ class Post < ActiveRecord::Base
 
 	validates_presence_of :Title , :Description
 
+
+
+
 	
 end

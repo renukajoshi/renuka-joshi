@@ -44,8 +44,9 @@
   <%= @post.updated_at %>
 </p>
 
+<p>
+  <STRONG>Comments:</STRONG>
 
-<hr>
 <% @com=@post.comments %>
         
      <% @com.each do |c| %>  
@@ -58,8 +59,7 @@
         </p>
         <hr>
      <% end %>      
-
-<hr>
+</p>
 
 <%= render 'comment' , locals: @post %>
 

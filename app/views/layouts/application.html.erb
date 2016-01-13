@@ -5,23 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-  <script language="javascript" type="text/javascript">
-         <!--
-            document.write("You need to Sign up first!!")
-         //-->
-      </script>
-
 </head>
 <body>
-
-	
 <header>
-<marquee> Welcome to my blog! </marquee>
+  <h1><u><i>My Blog</i></u></h1>
 <div align="right">
-<a href="/tags">Tags</a></div><br>
-<div align="right"><%= link_to 'New Tag', new_tag_path %></div>
-<hr>
-</header>
+<a href="/categories">Categories</a>
+<a href="/tags">Tag</a>
+
+
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -30,6 +22,8 @@
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 
+<marquee> Welcome to my blog! </marquee>
+<br>
 <p class="navbar-text pull-right" align="right">  
 <% if user_signed_in? %>
   Logged in as <strong><%= current_user.first_name%></strong>.
@@ -40,8 +34,10 @@
   <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
 <% end %>
 <hr>
-
+</header>
 <%= yield %>
 
 </body>
+
+
 </html>

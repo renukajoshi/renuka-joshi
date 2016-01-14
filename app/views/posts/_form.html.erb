@@ -27,9 +27,8 @@
     <%= f.text_area :Description %>
   </div>
 
-
+<!--Retriving tags from tag table-->
 <div class="field">
-  
 
   <% @all_tags.each do |tag| %>
   <%= check_box_tag 'tag_ids[]', tag.id %>
@@ -38,12 +37,6 @@
   <% end %>
 </div>
   
-
-
-  
-
-
-
 
 
   <div class="actions">

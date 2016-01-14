@@ -9,7 +9,7 @@
   </thead>
 
   <tbody>
-    <% @tags.each do |tag| %>
+    <% @all_tags.each do |tag| %>
     <tr>
     <td><%= link_to tag.name , tag %></td>
     <td><%=link_to 'Show', tag %></td>

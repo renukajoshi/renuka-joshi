@@ -9,7 +9,7 @@ class TagsController < ApplicationController
   def index
 #<<<<<<< HEAD
     #raise params.inspect
-    @tags =Tag.all
+    @all_tags =Tag.all
      
      #raise @tag_name.inspect
     

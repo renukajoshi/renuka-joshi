@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
 #<<<<<<< HEAD
  
  devise_for :users 
@@ -28,7 +30,7 @@ Rails.application.routes.draw do
 
   #devise_for :users
  
-  root to: 'categories#index'
+  root to: 'home#index'
   
 
   resources :tags

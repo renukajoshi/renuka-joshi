@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112102148) do
+ActiveRecord::Schema.define(version: 20160114093423) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -72,13 +72,15 @@ ActiveRecord::Schema.define(version: 20160112102148) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.string   "first_name"
-    t.string   "last_name"
-    t.date     "birthdate"
     t.string   "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.date     "birthdate"
+    t.string   "gender"
+    t.string   "country"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

@@ -15,16 +15,17 @@
 <header>
 
   <marquee> Welcome to my blog! </marquee>
-  
+
   <h1><u><i>My Blog</i></u></h1>
 
 
 
-<div class="navbar"><a href="/home">Home</a>
-<a href="/categories">Category</a>   
-<a href="/tags">Tag</a></div>
-
-
+<ul class="nav nav-tabs">
+<li><a href="/homes">Home</a></li>
+<li><a href="/categories">Category</a></li>   
+<li><a href="/tags">Tag</a></li>
+</ul>
+  
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -49,14 +50,18 @@
 
 <hr>
 
-
 <div class="container">
-
+<div class="jumbotron">
 
 <%= yield %>
 
 </div>
-
-
+</div>
+<p>
+  <hr>
+<div class="footer">
+<p>&copy; 2013</p>
+</div>
+</p>
 </body>
 </html>

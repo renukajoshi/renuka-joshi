@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
 #<<<<<<< HEAD
+
 root to: 'home#index'
  
  devise_for :users 

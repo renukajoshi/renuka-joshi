@@ -9,56 +9,45 @@
  * compiled file so the styles you add here take precedence over styles defined in any styles
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+ * 
+*= require_self
+*= require_tree
+*/
+
+@import "bootstrap";
 
 body { 
 
-		background-color: #EEE ;
-		
-		color: #123;
+    background-color: #EEE ;
+    
+    color: #123;
 
-		font-family: arial;
+    font-family: arial
 
-		}
+    }
 
+header { 
 
-a {
-  color: black;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: blue;
-    background-color: #000;
-  }
-}
+    background-color: #ACB ;
+    
+    color: green;
 
-header{
-	background-color: #ACB;
+    font-family:  comic-sans-ms;
 
-	color: green;
-  font-family: comic-sans-ms;
-}
+    }
 
-table{
+ table {
+		margin-left: 300px; 
+ 		width: 50%;
+ 		height: 50%;
+ 		text-align: center;
+ }
 
+ th {
 
-  width: 100%;
-}
-
-th{ background-color: black;
-      
-    color: white;
-
-      }
-
-
-td{
-  text-align: center;
-}
+ 	background-color: black;
+ 	color: white;
+ }
 
 
 

@@ -6,11 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.css">
   <link href="assets/css/bootstrap-responsive.css" rel="stylesheet">
 </head>
 
 
-<body>
+<body data-spy="scroll" , data-target=".nav">
 
 <header>
 
@@ -19,10 +20,12 @@
   <h1><u><i>My Blog</i></u></h1>
 
 <br>
-<div class="nav nav-tabs">
-<a href="/homes">Home</a>
-<a href="/categories">Category</a>   
-<a href="/tags">Tag</a>
+<ul class="nav nav-tabs">
+<li class="active">
+<li><a href="/home" class="glyphicon glyphicon-home">Home</a></li>
+<li><a href="/categories" data-toggle="tooltip" title="Show Categories">Category</a></li>   
+<li><a href="/tags" data-toggle="tooltip" title="show tags">Tag</a></li>
+<li><a href="/demoes">Demo</a></li>
 </div>
   
 
@@ -34,6 +37,7 @@
 <% end %>
 
 <br>
+
 
 <p class="navbar-text pull-right" align="right">  
 <% if user_signed_in? %>
@@ -56,9 +60,10 @@
 
 </div>
 <p>
-  <hr>
+
 <div class="footer">
-<p>&copy; 2013</p>
+<p>&copy; 2015</p>
+</div>
 </div>
 </p>
 </body>

@@ -1,6 +1,6 @@
 <h3>Listing posts of <%= @category.name %></h3>
 
-<table border="2" cellpadding="10" cellspacing="0">
+<table class="table">
   <thead>
     <tr>
       <th>userid</th>
@@ -29,9 +29,9 @@
 
 
         </td>
-        <td><%= link_to 'Show', category_post_path(post.category,post) %></td>
-        <td><%= link_to 'Edit', edit_category_post_path(post.category,post) %></td>
-        <td><%= link_to 'Destroy', category_post_path(post.category,post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', category_post_path(post.category,post), class: "btn btn-info" %></td>
+        <td><%= link_to 'Edit', edit_category_post_path(post.category,post),class: "btn btn-warning" %></td>
+        <td><%= link_to 'Destroy', category_post_path(post.category,post), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

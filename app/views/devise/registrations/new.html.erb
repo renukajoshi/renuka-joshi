@@ -3,47 +3,56 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <!--script src="//code.jquery.com/jquery-1.10.2.js"></script-->
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <script>
-  $(function() {
-    $( "#mydatepicker" ).datepicker();
-  });
-  </script>
 
 
   </head>
-  <body><h2>Sign up</h2>
+  <body>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-<div class="field">
-   <%= f.label "First Name" %> <br>
-   <%= f.text_field :first_name, autofocus: true , :placeholder => " Enter the First Name" , required: true %> <br>
-  <%= f.label "Last Name" %> <br>
-   <%= f.text_field :last_name, autofocus: true , :placeholder => " Enter the Last Name" , required: true %>
-</div>
+    <h2>Sign up</h2>
+    <hr class="colorgraph">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: "form-inline center"}) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, :placeholder => " Enter the Email" , required: true %>
-  </div>
+<div class="col-md-8">
+    <p>
+      <div class="form-group">
+        <%= f.text_field :first_name, autofocus: true , class: "form-control",:placeholder => " Enter the First Name" , required: true %>
+        <%= f.text_field :last_name,class: "form-control", :placeholder => " Enter the Last Name" , required: true %>
+      </div>
+    </p>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" , :placeholder => " Enter the passowrd" , required: true %>
-  </div>
+    <p>
+      <div class="form-group">
+        <%= f.email_field :email,class: "form-control", :placeholder => " Enter the Email" , required: true %>
+      </div>
+    </p>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" , :placeholder => " Enter the passowrd" , required: true %>
-  </div>
 
-  <div class="field">
-    <%= f.label "Birth Date" %><br>
-    <%= f.date_select :birthdate , :id => "mydatepicker" , required: true %>
-  </div>
+    <p>
+      <div class="form-group">
+        <%= f.password_field :password, class: "form-control" , autocomplete: "off" , :placeholder => " Enter the passowrd" , required: true %>
+        <%= f.password_field :password_confirmation, class: "form-control" , autocomplete: "off" , :placeholder => " Enter the passowrd" , required: true %>
+        <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+      </div>
+    </p>
+
+
+<!--Birthdate using bootstrap datetimepicker -->
+  
+    <p>
+      <div class="field">
+        <%= f.label "Birth Date" %><br>
+        <script type="text/javascript">
+          $(document).ready(function(){
+              $('.datepicker').datepicker();
+            });
+        </script>
+        <%= f.text_field :birthdate , :id => "datepicker" , class: "datepicker" , required: true %>
+      </div>
+    </p>
+
 
   <div class="field">
     <%=  f.label :gender %><br/>
@@ -51,23 +60,21 @@
     <%= f.radio_button :gender, false %>Female
   </div>
 
+
   <div class="field">
     <%=  f.label :country %><br/>
-    <%= f.country_select :country , required: true %>
+    <%= f.country_select :country , class: "dropdown" , required: true %>
   </div><br>
 
-  <div class="field">
-    <%= f.label "Profile Picture" %><br><br>
-    <%= f.file_field :image , :placeholder=>'Select Profile Picture' , required: true %>
+ 
 
-  </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "Sign up" , class: "btn btn-primary" %>
   </div>
 <% end %>
 
 <%= render "devise/shared/links" %>
-
+</div>
 </body>
 </html>

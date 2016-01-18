@@ -2,8 +2,8 @@
 
 
           <p> 
-               <%= f.label :body, "New comment" , :col => 50 , :row => 30 %><br/>
-               <%= f.text_area :body  %></p>
+               <%= f.label :body, "New comment" %><br/>
+               <%= f.text_area :body , :col => 25, :rows => 5  %></p>
 
               
                <%= f.hidden_field :post_id , value: params[:id] %></p>            

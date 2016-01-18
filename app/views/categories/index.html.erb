@@ -1,7 +1,6 @@
 
-<h3>Listing categories</h3>
 
-<table border="2" cellpadding="10">
+<table  class="table table-stripped">
   <thead>
     <tr>
       <th>Name</th>
@@ -15,9 +14,9 @@
       <tr>
         <td><%= category.name %></td>
        
-        <td><%= link_to 'Show', category %></td>
+        <td><%= link_to 'Show', category , class: "btn btn-info" %></td>
        
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', category,  method: :delete, data: { confirm: 'Are you sure?' } ,class: "glyphicon glyphicon-trash , btn btn-danger btn-md"%></td>
       </tr>
     <% end %>
   </tbody>
@@ -25,4 +24,7 @@
 
 <br>
 
-<%= link_to 'New Category', new_category_path , class: "glyphicon glyphicon-th" , class: "btn btn-primary btn-lg"   %>
+
+<%= link_to 'New Category', new_category_path , class: "glyphicon glyphicon-plus btn btn-primary btn-md"   %>
+    
+

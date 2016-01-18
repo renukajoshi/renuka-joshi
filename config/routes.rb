@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'demoes/index'
+
 #<<<<<<< HEAD
 
 root to: 'home#index'

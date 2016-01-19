@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   get 'demoes/index'
 
 #<<<<<<< HEAD
-
-root to: 'home#index'
+get 'home/index'
+#root to: 'home#index'
  
  devise_for :users 
   
@@ -34,7 +34,7 @@ root to: 'home#index'
   #devise_for :users
  
   
-  
+  root to: "categories#index"
 
   resources :tags
 

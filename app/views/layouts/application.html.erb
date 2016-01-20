@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <!--Link to include iconic font awsome in rails-->
   <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+  <script src="path/to/sweet-alert.min.js"></script>
+  <link rel="stylesheet" href="path/to/sweet-alert.css" />
 
 </head>
 
@@ -33,6 +35,20 @@
 <li><a href="/demoes/index" data-toggle="tooltip" title="Demo">Demo</a></li>
 </div>
   
+<br>
+
+
+<p class="navbar-text pull-right" align="right">  
+<% if user_signed_in? %>
+  Logged in as <strong><%= current_user.first_name%></strong>.
+  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link',class: "btn btn-link" %> |
+  <%= link_to "Logout", destroy_user_session_path, method: "GET"  ,class: "btn btn-link" %>
+<% else %>
+  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link',class: "btn btn-link"  %> |
+  <%= link_to "Login", new_user_session_path, :class => 'navbar-link',class: "btn btn-link"  %>
+
+<% end %>
+</header>
 
 <% if notice %>
   <p class="alert alert-success"><%= notice %></p>
@@ -40,25 +56,7 @@
 <% if alert %>
   <p class="alert alert-danger"><%= alert %></p>
 <% end %>
-
-<br>
-
-
-<p class="navbar-text pull-right" align="right">  
-<% if user_signed_in? %>
-  Logged in as <strong><%= current_user.first_name%></strong>.
-  <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-  <%= link_to "Logout", destroy_user_session_path, method: "GET"   %>
-<% else %>
-  <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
-  <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-
-<% end %>
-</header>
-
 <hr>
-
-
 <div class="container">
 
 <%= yield %>
@@ -69,16 +67,28 @@
 
 <div class="footer">
 <p>&copy; 2015
-  <span class="fa-stack fa-lg">
+
+<span class="fa-stack fa-lg">
   <i class="fa fa-twitter fa-stack-1x"></i>
-  </span>
- <span class="fa-stack fa-lg">
+</span>
+
+<span class="fa-stack fa-lg">
   <i class="fa fa-facebook fa-stack-1x"></i>
 </span>
+
  <span class="fa-stack fa-lg">
   <i class="fa fa-circle-thin fa-stack-2x"></i>
   <i class="fa fa-linkedin fa-stack-1x"></i>
 </span>
+
+ <a class="btn btn-social-icon btn-twitter">
+    <span class="fa fa-twitter"></span>
+  </a>
+
+ <a class="btn btn-social-icon btn-google">
+    <span class="fa fa-google"></span>
+  </a>
+
 </p>
 </div>
 </div>

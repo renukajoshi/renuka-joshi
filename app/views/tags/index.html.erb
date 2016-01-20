@@ -12,13 +12,13 @@
     <% @all_tags.each do |tag| %>
     <tr>
     <td><%= link_to tag.name , tag %></td>
-    <td><%=link_to 'Show', tag %></td>
-     <td><%= link_to 'Edit', edit_tag_path(tag) %></td>
-      <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%=link_to 'Show', tag , class: "btn btn-info"%></td>
+     <td><%= link_to 'Edit', edit_tag_path(tag), class: "btn btn-warning" %></td>
+      <td><%= link_to 'Destroy', tag, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
 <br>
-<%= link_to 'Back', :back %>
+<%= link_to 'Back', :back,class: "btn btn-primary" %>

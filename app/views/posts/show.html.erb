@@ -1,7 +1,14 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
 <div class="well well-sm">
 <div class = "page-header">
 <p>
    <h2><%= @post.Title %></h2>
+   <h6>Category:<%= @post.category.try(:name) %></h6>
 </p>
 </div>
 </div>
@@ -21,14 +28,6 @@
 
 
 
-
-<p>
-  <strong>Category:</strong>
-  <%= @post.category.try(:name) %>
-</p>
-
-
-
 <p>
   <strong>Created_at:</strong>
   <%= @post.created_at %>
@@ -41,14 +40,12 @@
   <strong>Updated_at:</strong>
   <%= @post.updated_at %>
 </p>
-
-
+<br>
 <p>
-  <strong>Comment:</strong>
-
-</p>
-
-
+<button data-toggle="collapse" data-target="#comment">Show Comments</button>
+<div id="comment" class="collapse">
+<div class="panel panel group">
+  <div class="panel-content">
  <% @com=@post.comments %>
     <% @com.each do |c| %>  
        <%= c.body %><p id="timestamp"><%= time_ago_in_words(c.created_at) %> ago</p>
@@ -60,14 +57,17 @@
            <hr>
      <% end %>    
 </p>
+</div>
+</div>
+</div>
+</p>
 
-
-
-
+<br>
 <%= render 'comment' , locals: @post %>
 
 
 <%= link_to 'Edit', edit_category_post_path(@post.category,@post), class: "btn btn-warning" %> |
 <%= link_to 'Back', category_posts_path(@post.category,@post), class: "btn btn-primary" %>
-
+</body>
+</html>
 
